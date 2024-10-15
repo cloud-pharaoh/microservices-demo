@@ -17,11 +17,11 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0.402-noble@sha256:96bd4e90b80d82f8e77512ec0
 WORKDIR /app
 COPY cartservice.csproj .
 RUN dotnet restore cartservice.csproj \
-    -r linux-x64
+    -r linux-arm64
 COPY . .
 RUN dotnet publish cartservice.csproj \
     -p:PublishSingleFile=true \
-    -r linux-x64 \
+    -r linux-arm64 \
     --self-contained true \
     -p:PublishTrimmed=true \
     -p:TrimMode=full \
